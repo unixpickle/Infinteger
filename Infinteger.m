@@ -4,8 +4,8 @@
 int main (int argc, const char * argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	
-	BigIntRef bi = BigIntNew(23);
-	BigIntRef bi2 = BigIntNew(100);
+	BigIntRef bi = BigIntNew(20);
+	BigIntRef bi2 = BigIntNew(10);
 	printf("%ld = %s\n", (long)BigInt32BitInt(bi), BigIntBase10Rep(bi));
 	printf("%ld = %s\n", (long)BigInt32BitInt(bi2), BigIntBase10Rep(bi2));
 	BigIntRef twelve = BigIntAdd(bi, bi2);
@@ -16,13 +16,17 @@ int main (int argc, const char * argv[]) {
 	BigIntRelease(bi2);
 	BigIntRelease(bi);
 	
-	BigIntRef orig = BIGINT("15");
-	BigIntRef new = BIGINT("7");
-	
+	BigIntRef orig = BIGINT("-7");
+	BigIntRef new = BIGINT("-14");
+	printf("Multiplying...\n");
 	BigIntRef product = BigIntMultiply(orig, new);
 	printf("%s * %s = %s, 32-bit: %ld\n", BigIntBase10Rep(orig), 
 		   BigIntBase10Rep(new), BigIntBase10Rep(product), 
 		   (long)BigInt32BitInt(product));
+	
+	BigIntRef sum = BigIntAdd(orig, new);
+	printf("%s + %s = %s\n", BigIntBase10Rep(orig),
+		   BigIntBase10Rep(new), BigIntBase10Rep(sum));
 	
 	if (BigIntOperatorCheck(orig, kBigIntGreaterThan, new)) {
 		printf("%s > %s\n", BigIntBase10Rep(orig), BigIntBase10Rep(new));
@@ -33,6 +37,7 @@ int main (int argc, const char * argv[]) {
 	}
 	
 	BigIntRelease(product);
+	BigIntRelease(sum);
 	BigIntRelease(orig);
 	BigIntRelease(new);
 	

@@ -68,8 +68,14 @@ BigIntRef BigIntCreateCopy (BigIntRef bi, BigIntDWORD shift) {
 	return bir;
 }
 
-BigIntRef BigIntCreateDecimal (const char * decstr) {
-	
+BigIntRef BigIntCreateDecimal (const char * _decstr) {
+	const char * decstr = _decstr;
+	if (strlen(decstr) == 0) {
+		return BigIntNew(0);
+	}
+	if (_decstr[0] == '-') {
+		decstr = &_decstr[1];
+	}
 	// read each digit, multiplying something by ten
 	// and adding the product of that and the digit
 	// to the return value
@@ -102,11 +108,35 @@ BigIntRef BigIntCreateDecimal (const char * decstr) {
 	}
 	BigIntRelease(digit);
 	BigIntRelease(base);
+	if (_decstr[0] == '-') {
+		result->flags |= kBigIntFlagNegative;
+	}
 	return result;
 }
 
 BigIntRef BigIntAdd (BigIntRef bi, BigIntRef bi2) {
-	
+	if (BigIntFlagIsSet(bi, kBigIntFlagNegative)) {
+		if (BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
+			// subtract a positive from a negative
+			bi2->flags ^= kBigIntFlagNegative;
+			BigIntRef answer = BigIntSubtract(bi, bi2);
+			bi2->flags |= kBigIntFlagNegative;
+			return answer;
+		} else {
+			// we need to subtract bi from bi2
+			bi->flags ^= kBigIntFlagNegative;
+			// run some DNA tests on that sucker
+			BigIntRef answer = BigIntSubtract(bi2, bi);
+			bi->flags |= kBigIntFlagNegative;
+			return answer;
+		}
+	} else if (BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
+		// subtract
+		bi2->flags ^= kBigIntFlagNegative;
+		BigIntRef answer = BigIntSubtract(bi, bi2);
+		bi2->flags |= kBigIntFlagNegative;
+		return answer;
+	}
 	BigIntRef newInt = (BigIntRef)malloc(sizeof(_BigInt));
 	// create a bitbuffer
 	newInt->bits = BitBufferNew((bi->binDigits + bi2->binDigits) / 8 + 1);
@@ -164,6 +194,36 @@ BigIntRef BigIntAdd (BigIntRef bi, BigIntRef bi2) {
 }
 BigIntRef BigIntSubtract (BigIntRef bi, BigIntRef bi2) {
 	// for now assume that bi > bi2
+	if (!BigIntFlagIsSet(bi, kBigIntFlagNegative) && BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
+		// add instead of subtracting
+		bi2->flags ^= kBigIntFlagNegative;
+		BigIntRef answer = BigIntAdd(bi, bi2);
+		bi2->flags |= kBigIntFlagNegative;
+		return answer;
+	} else if (BigIntFlagIsSet(bi, kBigIntFlagNegative) && !BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
+		bi->flags ^= kBigIntFlagNegative;
+		BigIntRef answer = BigIntAdd(bi, bi2);
+		answer->flags |= kBigIntFlagNegative;
+		bi->flags |= kBigIntFlagNegative;
+		return answer;
+	} else if (BigIntFlagIsSet(bi, kBigIntFlagNegative) && BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
+		// it is a negative plus a positive, or a positive minus a negative!
+		bi2->flags ^= kBigIntFlagNegative;
+		bi->flags ^= kBigIntFlagNegative;
+		BigIntRef answer = BigIntSubtract(bi2, bi);
+		bi2->flags |= kBigIntFlagNegative;
+		bi->flags |= kBigIntFlagNegative;
+		return answer;
+	}
+	if (BigIntOperatorCheck(bi, kBigIntLessThan, bi2)) {
+		// switch the two around, and make the answer negative.
+		BigIntRef answer = BigIntSubtract(bi2, bi);
+		answer->flags |= kBigIntFlagNegative;
+		return answer;
+	} else if (BigIntOperatorCheck(bi, kBigIntEqual, bi2)) {
+		BigIntRef answer = BigIntNew(0);
+		return answer;
+	}
 	BigBool carry = BBNo;
 	BigIntRef difference = (BigIntRef)malloc(sizeof(_BigInt));
 	difference->flags = 0;
@@ -235,6 +295,15 @@ BigIntRef BigIntMultiply (BigIntRef bi, BigIntRef bi2) {
 			productSum = newSum;
 		}
 	}
+	productSum->flags = 0;
+	// check the negative stream
+	BigBool neg1 = BigIntFlagIsSet(bi, kBigIntFlagNegative);
+	BigBool neg2 = BigIntFlagIsSet(bi2, kBigIntFlagNegative);
+	if (!neg1 && neg2) {
+		productSum->flags |= kBigIntFlagNegative;
+	} else if (neg1 && !neg2) {
+		productSum->flags |= kBigIntFlagNegative;
+	}
 	return productSum;
 }
 BigIntRef BigIntDivide (BigIntRef bi, BigIntRef bi2) {
@@ -253,12 +322,33 @@ BigBool BigIntOperatorCheck (BigIntRef bi1, BigIntOperator o, BigIntRef bi2) {
 					return BBNo;
 				}
 			}
+			// if they are both zero, give us a yes
+			// dispite their negativity.
+			if (bi1->binDigits == 0) return BBYes;
+			// check if they are of the same distance from zero
+			if (BigIntFlagIsSet(bi1, kBigIntFlagNegative) != BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
+				return BBNo;
+			}
+			// no other things are needed, fire away!
 			return BBYes;
 		}
 		case kBigIntGreaterThan:
 		{
 			// compare
 			if (BigIntOperatorCheck(bi1, kBigIntEqual, bi2)) return BBNo;
+			if (BigIntFlagIsSet(bi1, kBigIntFlagNegative) && !BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
+				return BBNo;
+			} else if (!BigIntFlagIsSet(bi1, kBigIntFlagNegative) && BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
+				return BBYes;
+			} else if (BigIntFlagIsSet(bi1, kBigIntFlagNegative) && BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
+				bi1->flags ^= kBigIntFlagNegative;
+				bi2->flags ^= kBigIntFlagNegative;
+				BigBool ans = BigIntOperatorCheck(bi1, kBigIntGreaterThan, bi2);
+				ans ^= 1;
+				bi1->flags |= kBigIntFlagNegative;
+				bi2->flags |= kBigIntFlagNegative;
+				return ans;
+			}
 			if (bi1->binDigits > bi2->binDigits) return BBYes;
 			if (bi1->binDigits < bi2->binDigits) return BBNo;
 			for (int i = bi1->binDigits - 1; i >= 0; i--) {
@@ -320,6 +410,12 @@ const char * BigIntBase10Rep (BigIntRef bi) {
 		}
 		free(currentString);
 		bi->b10string = string;
+		if (BigIntFlagIsSet(bi, kBigIntFlagNegative)) {
+			char * newString = (char *)malloc(strlen(bi->b10string) + 2);
+			sprintf(newString, "-%s", bi->b10string);
+			free(bi->b10string);
+			bi->b10string = newString;
+		}
 	}
 	return bi->b10string;
 }

@@ -272,7 +272,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
+									<integer>5</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -315,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>BigInt.c</string>
+								<string>Infinteger.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>BigInt.c</string>
+										<string>Infinteger.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FA1980731304D22D0025145C</string>
+										<string>FA1980DA1304E0EE0025145C</string>
 										<key>history</key>
 										<array>
 											<string>FA0D5F621303545E00617DFC</string>
@@ -335,9 +335,9 @@
 											<string>FA5C20DF1304CF3C007BBEB6</string>
 											<string>FA5C20E01304CF3C007BBEB6</string>
 											<string>FA5C20F31304CFA6007BBEB6</string>
-											<string>FA5C20F81304D0EA007BBEB6</string>
 											<string>FA5C20F91304D0EA007BBEB6</string>
-											<string>FA5C20FC1304D12C007BBEB6</string>
+											<string>FA1980D81304E0EE0025145C</string>
+											<string>FA1980D91304E0EE0025145C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -535,8 +535,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>FA1980DB1304E0EE0025145C</string>
+		<string>FA19808B1304D8D50025145C</string>
+		<string>FA19808C1304D8D50025145C</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>FA0D5EF113034C8900617DFC</string>
 		<string>/Users/alex/xCode/git/Infinteger/Infinteger.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>849 180 788 504 0 0 1920 1058 </string>
@@ -660,8 +665,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {316, 201}}</string>
-											<string>{{316, 0}, {378, 201}}</string>
+											<string>{{0, 0}, {316, 202}}</string>
+											<string>{{316, 0}, {378, 202}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -676,8 +681,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {694, 201}}</string>
-											<string>{{0, 201}, {694, 180}}</string>
+											<string>{{0, 0}, {694, 202}}</string>
+											<string>{{0, 202}, {694, 179}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -710,7 +715,7 @@
 										<real>148</real>
 									</array>
 									<key>Frame</key>
-									<string>{{316, 0}, {378, 201}}</string>
+									<string>{{316, 0}, {378, 202}}</string>
 									<key>RubberWindowFrame</key>
 									<string>645 534 694 422 0 0 1920 1058 </string>
 								</dict>
@@ -738,13 +743,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>FA5C20CA1304CDE7007BBEB6</string>
+				<string>FA1980831304D8960025145C</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>FA5C20CB1304CDE7007BBEB6</string>
-				<string>FA5C20CC1304CDE7007BBEB6</string>
-				<string>FA5C20CD1304CDE7007BBEB6</string>
-				<string>FA5C20CE1304CDE7007BBEB6</string>
-				<string>FA5C20CF1304CDE7007BBEB6</string>
+				<string>FA1980841304D8960025145C</string>
+				<string>FA1980851304D8960025145C</string>
+				<string>FA1980861304D8960025145C</string>
+				<string>FA1980871304D8960025145C</string>
+				<string>FA1980881304D8960025145C</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -908,7 +913,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>FA5C20D01304CDE7007BBEB6</string>
+				<string>FA1980891304D8960025145C</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -918,7 +923,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
