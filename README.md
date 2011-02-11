@@ -1,6 +1,8 @@
 # Infinteger
 
-This library is currently being developed, and therefore is not yet fully functional.  The features it will include are:
+Infinteger is a C library that can be used to achieve infinitely large integers.  Since it is still being debugged, the code might still have a few bugs to work out.  The major functionality of the library is done, as you can see by building the project and running it.  
+
+Here is my original to-do list for Infinteger:
 
 1. Addition
 2. Multiplication
@@ -8,6 +10,10 @@ This library is currently being developed, and therefore is not yet fully functi
 4. Division
 5. Negative numbers (or flags, rather).
 6. Comparative operators (e.g >, <, =)
+7. Modulus
+8. An Objective-C wrapper
+
+So far all of these are done, except for 7, and 8, which are not required for this library to be used.  Modulus is already pretty easy to calculate, so there definitely will be a modulus function added to the next release.
 
 The number objects themselves are immutable, and therefore every operation must allocate a new object.  When I say object of course, I mean structure, since we know that C does not have object orientation.
 
@@ -39,6 +45,18 @@ Multiplication respects the properties of negatives.  Therefore a negative times
 
 That call will subtract x1 from x2, making <tt>x2 - x1</tt>
 
+## Comparing Numbers
+
+There are currently three comparative operations that you can perform on a BigInt object.  Theses are greater than, less than, and equal to.  The function to do this is declared as follows:
+
+    BigBool BigIntOperatorCheck(BigIntRef bi1, BigIntOperator o, BigIntRef bi2);
+
+The BigBool is just the smallest datatype that C has, which in this case is a byte.  The values for this are <tt>BBYes</tt>, which is 1, and <tt>BBNo</tt>, which is 0.  You can use the <tt>BigIntOperatorCheck</tt> function as follows:
+
+    BigIntOperatorCheck(bi1, kBigIntEqual, bi2)
+
+This will check if <tt>bi1 = bi2</tt>.  All three operators take negation into account.
+
 ## Output
 
 Since BigInt structures can hold numbers well over the limit of 32bit integers, printing out as an <tt>unsigned long long</tt> is not sufficient to output ANY BigInt object.  That is why there is a <tt>BigIntBase10Rep</tt> function.  This function returns an ASCII C-style string, escaped with a null character.  This string represents the base10 number stored in a BigInt, and therefore can be printed directly in a format using %s.
@@ -53,4 +71,4 @@ Where the variable <tt>bi</tt> is the BigInt of which to print.
 
 ## Notes
 
-Negative numbers are currently supported.  Multiplication and additional are "fully functional".  Subtraction is pretty much perfect, but there might be some bugs.  As of a few builds ago, there were no leaks.  Now there might be a few.  I will check for leaks before the next commit.
+Addition, subtraction, multiplication, and division are all complete.  The basic operators are present, but the more complex ones such as <= and >= are not there.  The only way to check if a number is negative is to get the base 10 string for it, or check the flag using <tt>BigIntFlagIsSet</tt>.  There are no known leaks, so if you find one, please inform me.

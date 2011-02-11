@@ -61,7 +61,7 @@ BigIntRef BigIntNew (BigIntDWORD initialValue);
 // @bi the BigIntRef to copy
 // @shift if not zero will multiply by 2^@shift
 //
-BigIntRef BigIntCreateCopy (BigIntRef bi, BigIntDWORD shift);
+BigIntRef BigIntCreateCopy (BigIntRef bi, long long shift);
 
 // Create a BigInt from a decimal string.
 // 

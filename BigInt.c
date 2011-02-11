@@ -37,7 +37,7 @@ BigIntRef BigIntNew (BigIntDWORD initialValue) {
 	return bi;
 }
 
-BigIntRef BigIntCreateCopy (BigIntRef bi, BigIntDWORD shift) {
+BigIntRef BigIntCreateCopy (BigIntRef bi, long long shift) {
 	
 	// create a copy, shifting up `shift' bits
 	BigIntRef bir = (BigIntRef)malloc(sizeof(_BigInt));
@@ -53,13 +53,21 @@ BigIntRef BigIntCreateCopy (BigIntRef bi, BigIntDWORD shift) {
 			bir->b10string = (char *)malloc(btlength + 1);
 			memcpy(bir->b10string, bi->b10string, btlength + 1);
 		}
-	} else {
+	} else if (shift > 0) {
 		BitBuffer bb = BitBufferNew(bi->binDigits / 8 + 1);
 		// write the zero bytes
-		for (register int i = 0; i < shift; i++) {
+		for (register long long i = 0; i < shift; i++) {
 			BitBufferAddBit(bb, 0);
 		}
 		for (register int i = 0; i < bi->binDigits; i++) {
+			// add a bit from the original
+			BitBufferAddBit(bb, BitBufferGetBit(bi->bits, i));
+		}
+		bir->bits = bb;
+	} else {
+		BitBuffer bb = BitBufferNew(bi->binDigits / 8 + 1);
+		// write the zero bytes
+		for (register long long i = -shift; i < bi->binDigits; i++) {
 			// add a bit from the original
 			BitBufferAddBit(bb, BitBufferGetBit(bi->bits, i));
 		}
@@ -115,6 +123,13 @@ BigIntRef BigIntCreateDecimal (const char * _decstr) {
 }
 
 BigIntRef BigIntAdd (BigIntRef bi, BigIntRef bi2) {
+	if (bi2 == bi) {
+		// create a copy of bi2, call, and release the copy
+		BigIntRef nbi2 = BigIntCreateCopy(bi2, 0);
+		BigIntRef answer = BigIntDivide(bi, nbi2);
+		BigIntRelease(nbi2);
+		return answer;
+	}
 	if (BigIntFlagIsSet(bi, kBigIntFlagNegative)) {
 		if (BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
 			// subtract a positive from a negative
@@ -194,6 +209,13 @@ BigIntRef BigIntAdd (BigIntRef bi, BigIntRef bi2) {
 }
 BigIntRef BigIntSubtract (BigIntRef bi, BigIntRef bi2) {
 	// for now assume that bi > bi2
+	if (bi2 == bi) {
+		// create a copy of bi2, call, and release the copy
+		BigIntRef nbi2 = BigIntCreateCopy(bi2, 0);
+		BigIntRef answer = BigIntSubtract(bi, nbi2);
+		BigIntRelease(nbi2);
+		return answer;
+	}
 	if (!BigIntFlagIsSet(bi, kBigIntFlagNegative) && BigIntFlagIsSet(bi2, kBigIntFlagNegative)) {
 		// add instead of subtracting
 		bi2->flags ^= kBigIntFlagNegative;
@@ -273,6 +295,13 @@ BigIntRef BigIntSubtract (BigIntRef bi, BigIntRef bi2) {
 	return difference;
 }
 BigIntRef BigIntMultiply (BigIntRef bi, BigIntRef bi2) {
+	if (bi2 == bi) {
+		// create a copy of bi2, call, and release the copy
+		BigIntRef nbi2 = BigIntCreateCopy(bi2, 0);
+		BigIntRef answer = BigIntMultiply(bi, nbi2);
+		BigIntRelease(nbi2);
+		return answer;
+	}
 	BigIntRef productSum = BigIntNew(0);
 	BigIntRemoveDecimalString(productSum);
 	// sum up each new big int and replace
@@ -307,10 +336,73 @@ BigIntRef BigIntMultiply (BigIntRef bi, BigIntRef bi2) {
 	return productSum;
 }
 BigIntRef BigIntDivide (BigIntRef bi, BigIntRef bi2) {
-	return NULL;
+	if (bi2 == bi) {
+		// create a copy of bi2, call, and release the copy
+		BigIntRef nbi2 = BigIntCreateCopy(bi2, 0);
+		BigIntRef answer = BigIntDivide(bi, nbi2);
+		BigIntRelease(nbi2);
+		return answer;
+	}
+	UInt8 neg1 = bi->flags & kBigIntFlagNegative;
+	UInt8 neg2 = bi2->flags & kBigIntFlagNegative;
+	if (neg1) bi->flags ^= kBigIntFlagNegative;
+	if (neg2) bi2->flags ^= kBigIntFlagNegative;
+	if (BigIntOperatorCheck(bi2, kBigIntGreaterThan, bi)) {
+		if (neg1) bi->flags |= kBigIntFlagNegative;
+		if (neg2) bi2->flags |= kBigIntFlagNegative;
+		return BigIntNew(0);
+	}
+	BitBuffer quotientBuffer = BitBufferNew(bi->bits->byteCount);
+	BigIntRef remainingBits = BigIntNew(0);
+	int lastIntIndex = bi->binDigits;
+	int remainingBitsI = bi->binDigits;
+	while (BBYes) {
+		// is nextNumber big enough?
+		if (BigIntOperatorCheck(remainingBits, kBigIntLessThan, bi2)) {
+			// pull down the next number, or free
+			if (remainingBitsI <= 0) {
+				break;
+			} else {
+				// we will make remainingBits larger
+				remainingBitsI--;
+				BigIntRef newInt = BigIntCreateCopy(remainingBits, 1);
+				BitBufferSetBit(newInt->bits, BitBufferGetBit(bi->bits, remainingBitsI),
+								0);
+				BigIntRelease(remainingBits);
+				remainingBits = newInt;
+			}
+		} else {
+			// create a new big number
+			if (remainingBitsI < 0) break;
+			BitBufferSetBit(quotientBuffer, 1, remainingBitsI);
+			BigIntRef newInt = BigIntSubtract(remainingBits, bi2);
+			BigIntRelease(remainingBits);
+			remainingBits = newInt;
+			lastIntIndex = remainingBitsI;
+			// remainingBitsI --;
+		}
+	}
+	
+	BigIntRelease(remainingBits);
+	if (neg1) bi->flags |= kBigIntFlagNegative;
+	if (neg2) bi2->flags |= kBigIntFlagNegative;
+	BigIntRef quotient = BigIntNew(0);
+	BigIntRemoveDecimalString(quotient);
+	BitBufferFree(quotient->bits, 1);
+	quotient->bits = quotientBuffer;
+	quotient->binDigits = quotientBuffer->bitCount;
+	quotient->flags = kBigIntFlagNegative & (neg1 ^ neg2);
+	return quotient;
 }
 
 BigBool BigIntOperatorCheck (BigIntRef bi1, BigIntOperator o, BigIntRef bi2) {
+	if (bi1 == bi2) {
+		// create a copy of bi2, call, and release the copy
+		BigIntRef nbi2 = BigIntCreateCopy(bi2, 0);
+		BigBool answer = BigIntOperatorCheck(bi1, o, nbi2);
+		BigIntRelease(nbi2);
+		return answer;
+	}
 	switch (o) {
 		case kBigIntEqual:
 		{

@@ -54,6 +54,7 @@ void BitBufferAddBit (BitBuffer bb, UInt8 isOn) {
 }
 
 void BitBufferSetBit (BitBuffer bb, UInt8 isOn, int index) {
+	if (index >= bb->bitCount) bb->bitCount = index + 1;
 	UInt32 startByte = index / 8;
 	UInt32 startBit = index % 8;
 	Byte c = bb->bytes[startByte];

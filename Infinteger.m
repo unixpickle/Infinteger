@@ -16,8 +16,8 @@ int main (int argc, const char * argv[]) {
 	BigIntRelease(bi2);
 	BigIntRelease(bi);
 	
-	BigIntRef orig = BIGINT("-7");
-	BigIntRef new = BIGINT("-14");
+	BigIntRef orig = BIGINT("-2");
+	BigIntRef new = BIGINT("10");
 	printf("Multiplying...\n");
 	BigIntRef product = BigIntMultiply(orig, new);
 	printf("%s * %s = %s, 32-bit: %ld\n", BigIntBase10Rep(orig), 
@@ -40,6 +40,16 @@ int main (int argc, const char * argv[]) {
 	BigIntRelease(sum);
 	BigIntRelease(orig);
 	BigIntRelease(new);
+	
+	BigIntRef numerator = BIGINT("400");
+	BigIntRef denominator = BIGINT("20");
+	BigIntRef quotient = BigIntDivide(numerator, denominator);
+	printf("%s / %s = %s\n", BigIntBase10Rep(numerator), 
+		   BigIntBase10Rep(denominator), BigIntBase10Rep(quotient));
+	BigIntRelease(numerator);
+	BigIntRelease(denominator);
+	BigIntRelease(quotient);
+	
 	
     [pool drain];
 	sleep(1000);
