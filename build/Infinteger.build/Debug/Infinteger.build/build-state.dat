@@ -1,0 +1,226 @@
+TInfinteger
+v7
+r0
+t319082406.985296
+cCheck dependencies
+cProcessPCH /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-dhanmmqprctytkareviedzkjkivw/Infinteger_Prefix.pch.gch Infinteger_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cProcessPCH /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-awkakrxwxtuqnbdrhgwggydaotze/Infinteger_Prefix.pch.gch Infinteger_Prefix.pch normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/Infinteger.o /Users/alex/Desktop/Infinteger/Infinteger.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BitBuffer.o /Users/alex/Desktop/Infinteger/BitBuffer.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BigInt.o /Users/alex/Desktop/Infinteger/BigInt.c normal x86_64 c com.apple.compilers.gcc.4_2
+cLd /Users/alex/Desktop/Infinteger/build/Debug/Infinteger normal x86_64
+
+N/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004CD605D10000000000B3E910
+t1289094609
+s11790608
+
+N/Users/alex/Desktop/Infinteger/BigInt.c
+c000000004D5498040000000000002828
+t1297389572
+s10280
+i"BigInt.h"
+
+N/Users/alex/Desktop/Infinteger/BigInt.h
+c000000004D54995E0000000000000E21
+t1297389918
+s3617
+i"BitBuffer.h"
+
+N/Users/alex/Desktop/Infinteger/BitBuffer.c
+c000000004D54924E0000000000000978
+t1297388110
+s2424
+i"BitBuffer.h"
+
+N/Users/alex/Desktop/Infinteger/BitBuffer.h
+c000000004D54921D00000000000003C2
+t1297388061
+s962
+i<stdio.h>
+i<stdlib.h>
+i<unistd.h>
+i<string.h>
+i<strings.h>
+i<sys/types.h>
+
+N/Users/alex/Desktop/Infinteger/BitBuffer.m
+c000000004D3A4C09000000000000085B
+t1295666185
+s2139
+i"BitBuffer.h"
+
+N/Users/alex/Desktop/Infinteger/Infinteger.m
+c000000004D549860000000000000058A
+t1297389664
+s1418
+i<Foundation/Foundation.h>
+i"BigInt.h"
+
+N/Users/alex/Desktop/Infinteger/Infinteger_Prefix.pch
+c000000004D530FA200000000000000A2
+t1297289122
+s162
+i<Foundation/Foundation.h>
+
+N/Users/alex/Desktop/Infinteger/build/Debug/Infinteger
+t1297389606
+s21464
+
+N/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BigInt.o
+t1297389575
+s17176
+
+N/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BitBuffer.o
+t1297389134
+s7476
+
+N/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/Infinteger.LinkFileList
+c000000004D5314F6000000000000014B
+t1297290486
+s331
+
+N/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/Infinteger.o
+t1297389606
+s9004
+
+N/Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk
+c000000004CAA740B00000000000000EE
+t1286239243
+s238
+
+N/Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004C23AA0400000000000013E6
+t1277405700
+s5094
+
+N/Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004BBD2CE90000000000004174
+t1270689001
+s16756
+
+N/Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h
+c000000004BBD2CE90000000000002DF5
+t1270689001
+s11765
+
+N/Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk/usr/include/string.h
+c000000004BBD2CE90000000000001731
+t1270689001
+s5937
+
+N/Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk/usr/include/strings.h
+c000000004BBD2CE90000000000000DA4
+t1270689001
+s3492
+
+N/Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk/usr/include/sys/types.h
+c000000004C2399480000000000002905
+t1277401416
+s10501
+
+N/Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk/usr/include/unistd.h
+c000000004BBD2CE9000000000000563E
+t1270689001
+s22078
+
+N/var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-awkakrxwxtuqnbdrhgwggydaotze/Infinteger_Prefix.pch.gch
+t1297290486
+s2195824
+
+N/var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-dhanmmqprctytkareviedzkjkivw/Infinteger_Prefix.pch.gch
+t1297290489
+s41442064
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies319082406#319082406#0(0"0(0#1#0"8610900160#0"0#
+
+CCompileC build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BigInt.o /Users/alex/Desktop/Infinteger/BigInt.c normal x86_64 c com.apple.compilers.gcc.4_2
+s319082375.467098
+e319082375.549538
+r1
+xCompileC
+xbuild/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BigInt.o
+x/Users/alex/Desktop/Infinteger/BigInt.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@47"Compile /Users/alex/Desktop/Infinteger/BigInt.c319082375#319082375#0(0"0(0#0#39"/Users/alex/Desktop/Infinteger/BigInt.c8616648800#1446"    cd /Users/alex/Desktop/Infinteger    setenv LANG en_US.US-ASCII    /Xcodes/Developer11072010/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-generated-files.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-own-target-headers.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-all-target-headers.hmap -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-project-headers.hmap -F/Users/alex/Desktop/Infinteger/build/Debug -I/Users/alex/Desktop/Infinteger/build/Debug/include -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources/x86_64 -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources -include /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-awkakrxwxtuqnbdrhgwggydaotze/Infinteger_Prefix.pch -c /Users/alex/Desktop/Infinteger/BigInt.c -o /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BigInt.o0#
+
+CCompileC build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BitBuffer.o /Users/alex/Desktop/Infinteger/BitBuffer.c normal x86_64 c com.apple.compilers.gcc.4_2
+s319081934.867791
+e319081935.003686
+r1
+xCompileC
+xbuild/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BitBuffer.o
+x/Users/alex/Desktop/Infinteger/BitBuffer.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@50"Compile /Users/alex/Desktop/Infinteger/BitBuffer.c319081934#319081935#0(0"0(0#0#42"/Users/alex/Desktop/Infinteger/BitBuffer.c8611332672#1452"    cd /Users/alex/Desktop/Infinteger    setenv LANG en_US.US-ASCII    /Xcodes/Developer11072010/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-generated-files.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-own-target-headers.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-all-target-headers.hmap -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-project-headers.hmap -F/Users/alex/Desktop/Infinteger/build/Debug -I/Users/alex/Desktop/Infinteger/build/Debug/include -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources/x86_64 -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources -include /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-awkakrxwxtuqnbdrhgwggydaotze/Infinteger_Prefix.pch -c /Users/alex/Desktop/Infinteger/BitBuffer.c -o /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BitBuffer.o0#
+
+CCompileC build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BitBuffer.o /Users/alex/Desktop/Infinteger/BitBuffer.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s318983289.277570
+e318983289.446040
+r1
+xCompileC
+xbuild/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BitBuffer.o
+x/Users/alex/Desktop/Infinteger/BitBuffer.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@50"Compile /Users/alex/Desktop/Infinteger/BitBuffer.m318983289#318983289#0(0"0(0#0#42"/Users/alex/Desktop/Infinteger/BitBuffer.m8619865760#1462"    cd /Users/alex/Desktop/Infinteger    setenv LANG en_US.US-ASCII    /Xcodes/Developer11072010/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-generated-files.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-own-target-headers.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-all-target-headers.hmap -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-project-headers.hmap -F/Users/alex/Desktop/Infinteger/build/Debug -I/Users/alex/Desktop/Infinteger/build/Debug/include -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources/x86_64 -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources -include /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-dhanmmqprctytkareviedzkjkivw/Infinteger_Prefix.pch -c /Users/alex/Desktop/Infinteger/BitBuffer.m -o /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/BitBuffer.o0#
+
+CCompileC build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/Infinteger.o /Users/alex/Desktop/Infinteger/Infinteger.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s319082406.640872
+e319082406.966959
+r1
+xCompileC
+xbuild/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/Infinteger.o
+x/Users/alex/Desktop/Infinteger/Infinteger.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@51"Compile /Users/alex/Desktop/Infinteger/Infinteger.m319082406#319082406#0(0"0(0#0#43"/Users/alex/Desktop/Infinteger/Infinteger.m8618793984#1464"    cd /Users/alex/Desktop/Infinteger    setenv LANG en_US.US-ASCII    /Xcodes/Developer11072010/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-generated-files.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-own-target-headers.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-all-target-headers.hmap -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-project-headers.hmap -F/Users/alex/Desktop/Infinteger/build/Debug -I/Users/alex/Desktop/Infinteger/build/Debug/include -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources/x86_64 -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources -include /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-dhanmmqprctytkareviedzkjkivw/Infinteger_Prefix.pch -c /Users/alex/Desktop/Infinteger/Infinteger.m -o /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/Infinteger.o0#
+
+CLd /Users/alex/Desktop/Infinteger/build/Debug/Infinteger normal x86_64
+s319082406.967045
+e319082406.985243
+r1
+xLd
+x/Users/alex/Desktop/Infinteger/build/Debug/Infinteger
+xnormal
+xx86_64
+lSLF07#2@58"Link /Users/alex/Desktop/Infinteger/build/Debug/Infinteger319082406#319082406#0(0"0(0#0#0"8616257536#522"    cd /Users/alex/Desktop/Infinteger    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Xcodes/Developer11072010/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk -L/Users/alex/Desktop/Infinteger/build/Debug -F/Users/alex/Desktop/Infinteger/build/Debug -filelist /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Objects-normal/x86_64/Infinteger.LinkFileList -mmacosx-version-min=10.6 -framework Foundation -o /Users/alex/Desktop/Infinteger/build/Debug/Infinteger0#
+
+CProcessPCH /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-awkakrxwxtuqnbdrhgwggydaotze/Infinteger_Prefix.pch.gch Infinteger_Prefix.pch normal x86_64 c com.apple.compilers.gcc.4_2
+s318983286.768303
+e318983286.949034
+r1
+xProcessPCH
+x/var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-awkakrxwxtuqnbdrhgwggydaotze/Infinteger_Prefix.pch.gch
+xInfinteger_Prefix.pch
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@32"Precompile Infinteger_Prefix.pch318983286#318983286#0(0"0(0#0#52"/Users/alex/Desktop/Infinteger/Infinteger_Prefix.pch8617761120#1353"    cd /Users/alex/Desktop/Infinteger    setenv LANG en_US.US-ASCII    /Xcodes/Developer11072010/usr/bin/gcc-4.2 -x c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-generated-files.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-own-target-headers.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-all-target-headers.hmap -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-project-headers.hmap -F/Users/alex/Desktop/Infinteger/build/Debug -I/Users/alex/Desktop/Infinteger/build/Debug/include -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources/x86_64 -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources -c /Users/alex/Desktop/Infinteger/Infinteger_Prefix.pch -o /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-awkakrxwxtuqnbdrhgwggydaotze/Infinteger_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-dhanmmqprctytkareviedzkjkivw/Infinteger_Prefix.pch.gch Infinteger_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s318983286.730520
+e318983289.275842
+r1
+xProcessPCH
+x/var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-dhanmmqprctytkareviedzkjkivw/Infinteger_Prefix.pch.gch
+xInfinteger_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@32"Precompile Infinteger_Prefix.pch318983286#318983289#0(0"0(0#0#52"/Users/alex/Desktop/Infinteger/Infinteger_Prefix.pch8615145472#1363"    cd /Users/alex/Desktop/Infinteger    setenv LANG en_US.US-ASCII    /Xcodes/Developer11072010/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Xcodes/Developer11072010/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-generated-files.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-own-target-headers.hmap -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-all-target-headers.hmap -iquote /Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/Infinteger-project-headers.hmap -F/Users/alex/Desktop/Infinteger/build/Debug -I/Users/alex/Desktop/Infinteger/build/Debug/include -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources/x86_64 -I/Users/alex/Desktop/Infinteger/build/Infinteger.build/Debug/Infinteger.build/DerivedSources -c /Users/alex/Desktop/Infinteger/Infinteger_Prefix.pch -o /var/folders/CW/CW-brwKPHhWCoBqjsH0UTU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Infinteger_Prefix-dhanmmqprctytkareviedzkjkivw/Infinteger_Prefix.pch.gch0#
+
