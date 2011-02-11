@@ -95,8 +95,17 @@ BigIntRef BigIntSubtract (BigIntRef bi, BigIntRef bi2);
 //
 BigIntRef BigIntMultiply (BigIntRef bi, BigIntRef bi2);
 
-// Unimplemented division function.  Don't call if
-// you dislike consistant NULL values.
+
+// Divide two big ints.
+//
+// The answer is truncated down, so
+// @bi - the answer * @bi2 = modulus
+//
+// Function goes @bi / @bi2
+//
+// @bi first number
+// @bi2 second number
+//
 BigIntRef BigIntDivide (BigIntRef bi, BigIntRef bi2);
 
 // Returns true or false depending on whether 

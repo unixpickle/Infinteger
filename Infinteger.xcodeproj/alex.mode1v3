@@ -272,7 +272,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
+									<integer>6</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -315,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>BigInt.c</string>
+								<string>BigInt.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,21 +323,21 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>BigInt.c</string>
+										<string>BigInt.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FA1981E31305F3C00025145C</string>
+										<string>FA1981E71305F85F0025145C</string>
 										<key>history</key>
 										<array>
 											<string>FA0D5F621303545E00617DFC</string>
 											<string>FA0D5F631303545E00617DFC</string>
 											<string>FA5C20DF1304CF3C007BBEB6</string>
 											<string>FA5C20F31304CFA6007BBEB6</string>
-											<string>FA1981181305E19B0025145C</string>
 											<string>FA1981D01305F1B80025145C</string>
-											<string>FA1981E21305F3C00025145C</string>
-											<string>FA1981D11305F1B80025145C</string>
+											<string>FA1981E41305F85F0025145C</string>
+											<string>FA1981E51305F85F0025145C</string>
+											<string>FA1981E61305F85F0025145C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -539,8 +539,8 @@
 		<string>FA19808C1304D8D50025145C</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>FA0D5EF113034C8900617DFC</string>
-		<string>/Users/alex/xCode/git/Infinteger/Infinteger.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>/Users/alex/xCode/git/Infinteger/Infinteger.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>677 184 788 504 0 0 1920 1058 </string>
