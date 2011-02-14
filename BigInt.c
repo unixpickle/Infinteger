@@ -368,8 +368,16 @@ BigIntRef BigIntDivide (BigIntRef bi, BigIntRef bi2) {
 				BigIntRef newInt = BigIntCreateCopy(remainingBits, 1);
 				BitBufferSetBit(newInt->bits, BitBufferGetBit(bi->bits, remainingBitsI),
 								0);
-				BigIntRelease(remainingBits);
-				remainingBits = newInt;
+				int doIt = 1;
+				if (!BitBufferGetBit(bi->bits, remainingBitsI)) {
+					if (remainingBits->binDigits == 0) {
+						doIt = 0;
+					}
+				}
+				if (doIt) {
+					BigIntRelease(remainingBits);
+					remainingBits = newInt;
+				} else BigIntRelease(newInt);
 			}
 		} else {
 			// create a new big number
@@ -379,7 +387,7 @@ BigIntRef BigIntDivide (BigIntRef bi, BigIntRef bi2) {
 			BigIntRelease(remainingBits);
 			remainingBits = newInt;
 			lastIntIndex = remainingBitsI;
-			// remainingBitsI --;
+			//remainingBitsI --;
 		}
 	}
 	

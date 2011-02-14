@@ -1,6 +1,6 @@
 # Infinteger
 
-Infinteger is a C library that can be used to achieve infinitely large integers.  Since it is still being debugged, the code might still have a few bugs to work out.  The major functionality of the library is done, as you can see by building the project and running it.  
+Infinteger is a C library that can be used to achieve infinitely large integers.  Since it is a work in progress, the code might still have a few bugs to work out.  The major functionality of the library is done, as you can see by building the project and running it.  
 
 Here is my original to-do list for Infinteger:
 
@@ -13,7 +13,7 @@ Here is my original to-do list for Infinteger:
 7. Modulus
 8. An Objective-C wrapper
 
-So far all of these are done, except for 7, and 8, which are not required for this library to be used.  Modulus is already pretty easy to calculate, so there definitely will be a modulus function added to the next release.
+The Objective-C wrapper is done (for the most part), and is included in the project.  The next half of this readme file will be about the C library, then I will have a section about using the Objective-C library.
 
 The number objects themselves are immutable, and therefore every operation must allocate a new object.  When I say object of course, I mean structure, since we know that C does not have object orientation.
 
@@ -69,6 +69,48 @@ The standard usage of this is as follows:
 
 Where the variable <tt>bi</tt> is the BigInt of which to print.
 
-## Notes
+## Notes for the C library
 
 Addition, subtraction, multiplication, and division are all complete.  The basic operators are present, but the more complex ones such as <= and >= are not there.  The only way to check if a number is negative is to get the base 10 string for it, or check the flag using <tt>BigIntFlagIsSet</tt>.  There are no known leaks, so if you find one, please inform me.
+
+## The Objective-C wrapper
+
+Infinteger now comes with an easy-to-use Objective-C wrapper that utilizes the <tt>BigIntRef</tt> object.  This library works the same way as the C library.  A number is stored as an immutable object, the class of which being <tt>ANInteger</tt>.  An <tt>ANInteger</tt> object can perform operations, check operators, using Apple's <tt>NSString</tt> class.  An <tt>ANInteger</tt> object can be initialized as follows:
+
+    ANInteger * is = [ANInteger integerWithString:@"123"];
+    ANInteger * ii = [ANInteger integerWithInt:123];
+    ANInteger * ic = [[ANInteger alloc] initWithInteger:is];
+    ANInteger * ir = [[ANInteger alloc] initWithBigIntRef:bi];
+
+The last two methods allocated an object without autoreleasing it, meaning that you will have to release it yourself.  The first two methods autorelease the returned object, meaning that you don't have to worry about releasing.
+
+### String values
+
+Just like the C library, you can get a string from an <tt>ANInteger</tt> object.  Unlike the C library, this is returned as an <tt>NSString</tt> object, instead of a null-terminated character array.  Obtain an <tt>NSString</tt> from an <tt>ANInteger</tt> as follows:
+
+    NSString * string = [is stringValue];
+
+In that example, I am getting the string value of the ANInteger object <tt>is</tt>, and putting it into my <tt>string</tt> variable.  The return value of this function is autoreleased, so do not bother releasing it.
+
+### Mathematical operations
+
+Your <tt>ANInteger</tt> objects can run operations on each other.  Each operation run between two integers returns a fresh integer, which will be autoreleased.  Here is an example of subtraction:
+
+    ANInteger * quotient = [num1 divideBy:num2];
+
+This is basically stating that <tt>quotient = num1 / num2</tt>.  There are four different operation functions on <tt>ANInteger</tt> which are declared as follows:
+
+    - (ANInteger *)multiplyBy:(ANInteger *)i1;
+    - (ANInteger *)addBy:(ANInteger *)i1;
+    - (ANInteger *)subtractBy:(ANInteger *)i1;
+    - (ANInteger *)divideBy:(ANInteger *)i1;
+
+### Comparing integers
+
+It is easy to compare two <tt>ANInteger</tt> objects, using one of three functions.  You can check if two <tt>ANInteger</tt> objects are equal, using <tt>isEqual:</tt>.  You can check if one <tt>ANInteger</tt> is larger than another one with <tt>isGreaterThan:</tt>.  The opposite goes for <tt>isLessThan:</tt>.  These functions are used as follows:
+
+    BOOL b = [i1 isEqual:i2];
+    BOOL b = [i1 isGreaterThan:i2];
+    BOOL b = [i1 isLessThan:i2];
+
+In the third example, you are checking if <tt>i1</tt> is less than <tt>i2</tt>.  This order is the same for the other two examples.

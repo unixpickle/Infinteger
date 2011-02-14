@@ -12,6 +12,7 @@
 		8DD76F9F0486AA7600D96B5E /* Infinteger.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* Infinteger.1 */; };
 		FA0D5EE61303475C00617DFC /* BitBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5EE51303475C00617DFC /* BitBuffer.c */; };
 		FA0D5EEA1303479800617DFC /* BigInt.c in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5EE91303479800617DFC /* BigInt.c */; };
+		FAF2C7A61309CF0600C8A8CC /* ANInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C7A51309CF0600C8A8CC /* ANInteger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		FA0D5EE51303475C00617DFC /* BitBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BitBuffer.c; sourceTree = "<group>"; };
 		FA0D5EE81303479800617DFC /* BigInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigInt.h; sourceTree = "<group>"; };
 		FA0D5EE91303479800617DFC /* BigInt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BigInt.c; sourceTree = "<group>"; };
+		FAF2C7A41309CF0600C8A8CC /* ANInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANInteger.h; sourceTree = "<group>"; };
+		FAF2C7A51309CF0600C8A8CC /* ANInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANInteger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 				08FB7796FE84155DC02AAC07 /* Infinteger.m */,
 				FA0D5EE81303479800617DFC /* BigInt.h */,
 				FA0D5EE91303479800617DFC /* BigInt.c */,
+				FAF2C7A41309CF0600C8A8CC /* ANInteger.h */,
+				FAF2C7A51309CF0600C8A8CC /* ANInteger.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				8DD76F9A0486AA7600D96B5E /* Infinteger.m in Sources */,
 				FA0D5EE61303475C00617DFC /* BitBuffer.c in Sources */,
 				FA0D5EEA1303479800617DFC /* BigInt.c in Sources */,
+				FAF2C7A61309CF0600C8A8CC /* ANInteger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,11 @@
 
 #include "BitBuffer.h"
 
+#ifndef _BigInt_H
+#define _BigInt_H
+
 #define BIGINT BigIntCreateDecimal
+
 
 enum EBigIntFlag {
 	kBigIntFlagNegative = 1,
@@ -154,3 +158,5 @@ const char * BigIntBase10Rep (BigIntRef bi);
 // so one Release() will free.
 BigIntRef BigIntRetain (BigIntRef bi);
 void BigIntRelease (BigIntRef bi);
+
+#endif
